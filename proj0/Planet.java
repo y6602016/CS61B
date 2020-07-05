@@ -8,8 +8,7 @@ public class Planet {
     public double yyVel;
     public double mass;
     public String imgFileName;
-    public Object copy;
-    public static final double G = 6.67e-11;
+    private static final double G = 6.67e-11;
 
     /**
      * Constructor of a planet
