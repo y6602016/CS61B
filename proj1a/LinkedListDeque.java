@@ -69,7 +69,7 @@ public class LinkedListDeque<T> {
      * If no such item exists, return null
      */
     public T removeFirst() {
-        T removed = get(0);
+        T removed = sentinel.next.item;
         sentinel.next.next.prev = sentinel;
         sentinel.next = sentinel.next.next;
         if (!isEmpty()) {
@@ -83,7 +83,7 @@ public class LinkedListDeque<T> {
      * If no such item exists, return null
      */
     public T removeLast() {
-        T removed = get(size - 1);
+        T removed = sentinel.prev.item;
         sentinel.prev.prev.next = sentinel;
         sentinel.prev = sentinel.prev.prev;
         if (!isEmpty()) {
@@ -133,16 +133,16 @@ public class LinkedListDeque<T> {
         return getRecursive(index, sentinel.next);
     }
 
-    /**
-     * Create a deep copy of other
-     */
-    public LinkedListDeque(LinkedListDeque other) {
-        sentinel = new TNode(null, null, null);
-        sentinel.prev = sentinel;
-        sentinel.next = sentinel;
-        size = 0;
-        for (int i = 0; i < other.size; i++) {
-            addFirst((T) other.get(i));
-        }
-    }
+//    /**
+//     * Create a deep copy of other
+//     */
+//    public LinkedListDeque(LinkedListDeque other) {
+//        sentinel = new TNode(null, null, null);
+//        sentinel.prev = sentinel;
+//        sentinel.next = sentinel;
+//        size = 0;
+//        for (int i = 0; i < other.size; i++) {
+//            addFirst((T) other.get(i));
+//        }
+//    }
 }
