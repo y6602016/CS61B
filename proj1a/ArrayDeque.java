@@ -128,7 +128,7 @@ public class ArrayDeque<T> {
         nextFirst = plusOne(nextFirst);
         T removed = items[nextFirst];
         items[nextFirst] = null;
-        if(!isEmpty()) {
+        if (!isEmpty()) {
             size -= 1;
         }
         return removed;
@@ -145,7 +145,7 @@ public class ArrayDeque<T> {
         nextLast = minusOne(nextLast);
         T removed = items[nextLast];
         items[nextLast] = null;
-        if(!isEmpty()) {
+        if (!isEmpty()) {
             size -= 1;
         }
         return removed;
