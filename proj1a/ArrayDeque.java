@@ -37,7 +37,7 @@ public class ArrayDeque<T> {
     /**
      * Return true if deque is full, false otherwise.
      */
-    private boolean isFull(){
+    private boolean isFull() {
         return size == items.length;
     }
 
@@ -47,7 +47,7 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
         T[] newDeque = (T[]) new Object[capacity];
         int oldIndex = plusOne(nextFirst); // the index of the first item in original deque
-        for(int newIndex = 0; newIndex < size; newIndex++){
+        for (int newIndex = 0; newIndex < size; newIndex++) {
             newDeque[newIndex] = items[oldIndex];
             oldIndex = plusOne(oldIndex);
         }
@@ -97,7 +97,7 @@ public class ArrayDeque<T> {
      * Add an item of type Item to the front of the deque.
      */
     public void addFirst(T x) {
-        if(isFull()) {
+        if (isFull()) {
             upSize();
         }
         items[nextFirst] = x;
@@ -109,7 +109,7 @@ public class ArrayDeque<T> {
      * Add an item of type Item to the last of the deque.
      */
     public void addLast(T x) {
-        if(isFull()) {
+        if (isFull()) {
             upSize();
         }
         items[nextLast] = x;
@@ -122,7 +122,7 @@ public class ArrayDeque<T> {
      * If no such item exist, return null.
      */
     public T removeFirst() {
-        if(isSparse()) {
+        if (isSparse()) {
             downSize();
         }
         nextFirst = plusOne(nextFirst);
@@ -139,7 +139,7 @@ public class ArrayDeque<T> {
      * If no such item exist, return null.
      */
     public T removeLast() {
-        if(isSparse()) {
+        if (isSparse()) {
             downSize();
         }
         nextLast = minusOne(nextLast);
@@ -157,7 +157,7 @@ public class ArrayDeque<T> {
      * returns null. Must not alter the deque.
      */
     public T get(int index) {
-        if(index>=size) {
+        if (index >= size) {
             return null;
         }
         int start = plusOne(nextFirst);
@@ -169,7 +169,7 @@ public class ArrayDeque<T> {
      * Once all the items have been printed, print out a new line.
      */
     public void printDeque() {
-        for(int i = plusOne(nextFirst); i != nextLast; plusOne(i)) {
+        for (int i = plusOne(nextFirst); i != nextLast; plusOne(i)) {
             System.out.print(items[i] + " ");
         }
         System.out.println();

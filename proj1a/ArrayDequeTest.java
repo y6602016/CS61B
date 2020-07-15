@@ -1,6 +1,6 @@
 public class ArrayDequeTest {
-    public static void addGetRemoveTest(){
-        ArrayDeque<String> testing=new ArrayDeque<String>();
+    public static void addGetRemoveTest() {
+        ArrayDeque<String> testing = new ArrayDeque<String>();
         testing.addLast("A");
         testing.addLast("B");
         testing.addLast("C");

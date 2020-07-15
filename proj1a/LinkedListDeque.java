@@ -5,8 +5,8 @@ public class LinkedListDeque<T> {
 
     private class TNode {
         private T item;
-        public TNode prev;
-        public TNode next;
+        private TNode prev;
+        private TNode next;
 
 
         public TNode(T item, TNode prev, TNode next) {
@@ -83,7 +83,7 @@ public class LinkedListDeque<T> {
      * If no such item exists, return null
      */
     public T removeLast() {
-        T removed = get(size-1);
+        T removed = get(size - 1);
         sentinel.prev.prev.next = sentinel;
         sentinel.prev = sentinel.prev.prev;
         if (!isEmpty()) {
@@ -99,7 +99,7 @@ public class LinkedListDeque<T> {
      */
     public T get(int index) {
         TNode toGet = sentinel.next;
-        for(int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             toGet = toGet.next;
         }
         return toGet.item;
@@ -111,8 +111,8 @@ public class LinkedListDeque<T> {
      */
     public void printDeque() {
         TNode toPrint = sentinel.next;
-        for(int i = 0; i< size; i++){
-            System.out.print(toPrint.item+" ");
+        for (int i = 0; i < size; i++) {
+            System.out.print(toPrint.item + " ");
             toPrint = toPrint.next;
         }
         System.out.println();
@@ -122,11 +122,11 @@ public class LinkedListDeque<T> {
      * Same as get, but uses recursion
      * First, need a private helper method
      */
-    private T getRecursive(int index,TNode curr) {
-        if(index == 0) {
+    private T getRecursive(int index, TNode curr) {
+        if (index == 0) {
             return curr.item;
         }
-        return getRecursive(index-1, curr.next);
+        return getRecursive(index - 1, curr.next);
     }
 
     public T getRecursive(int index) {
@@ -136,13 +136,13 @@ public class LinkedListDeque<T> {
     /**
      * Create a deep copy of other
      */
-    public LinkedListDeque(LinkedListDeque other){
+    public LinkedListDeque(LinkedListDeque other) {
         sentinel = new TNode(null, null, null);
         sentinel.prev = sentinel;
         sentinel.next = sentinel;
         size = 0;
-        for(int i = 0; i < other.size ; i++){
-            addFirst((T)other.get(i));
+        for (int i = 0; i < other.size; i++) {
+            addFirst((T) other.get(i));
         }
     }
 }
