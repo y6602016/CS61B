@@ -84,14 +84,12 @@ public class IntList {
         if(A==null){
             return B;
         }
-        else{
-            IntList connect=A;
-            while(connect.rest!=null){
-                connect=connect.rest;
-            }
-            connect.rest=B;
-            return A;
+        IntList connect=A;
+        while(connect.rest!=null){
+            connect=connect.rest;
         }
+        connect.rest=B;
+        return A;
     }
 
     /**
